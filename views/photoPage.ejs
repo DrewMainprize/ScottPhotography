@@ -1,0 +1,14 @@
+<%- include("partials/header") %>
+
+<div class="ui centered container" id="masonry-grid">
+	<% photos.forEach(function(photo){ %>
+		<div class="grid-item">
+			<a href="/photos/<%= photo._id %>" class="ui image">
+  				<img src="<%= photo.image %>">
+			</a>
+		</div>
+	<% }); %>
+	
+</div>
+
+<%- include("partials/footer") %>

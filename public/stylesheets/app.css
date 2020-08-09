@@ -1,0 +1,63 @@
+body{
+	background-color: #E3EDF4;
+}
+
+#jumbotron{
+	color: white;
+	background: url("images/landing69.jpg");
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	
+}
+
+#headerMenu{
+	background: linear-gradient(to right, #11adcb 0%, #336699 100%);
+	margin-bottom: 50px;
+}
+#landingMenu{
+	background: rgba(0, 3, 39, 0.39);
+	box-shadow: 0px 15px 10px -15px #111;
+}
+
+#navItem{
+	color: white;
+}
+
+#brand{
+	color: white !important;
+	font-family: 'Permanent Marker', cursive;
+}
+#masonry-grid{
+	line-height: 40px;
+	column-count: 4;	
+}
+
+.grid-item{
+	width: 100% !important;
+	height: auto !important;
+	margin-bottom: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 991px){
+	#masonry-grid{
+		line-height: 40px;
+		column-count: 3;	
+	}
+}
+
+@media screen and (max-width: 867px){
+	#masonry-grid{
+		line-height: 40px;
+		column-count: 2;	
+	}
+}
+
+@media screen and (max-width: 660px){
+	#masonry-grid{
+		line-height: 40px;
+		column-count: 1;	
+	}
+}

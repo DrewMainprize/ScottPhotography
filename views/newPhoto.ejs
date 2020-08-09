@@ -1,0 +1,34 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container segment">
+	<div class="ui huge header">
+		Add New Photo
+	</div>
+	
+	
+	<form class="ui form" action="/photos" method="POST" enctype="multipart/form-data">
+		
+		
+		<div class="field">   
+   			<label for="file" class="ui icon button">
+        		<i class="file icon"></i>
+        		Open File
+			</label>
+   			<input type="file" id="file" name="photo[image]" style="display:none">
+		</div>
+		
+		
+		
+		<div class="field">
+			<label>Category</label>
+			<input type="text" name="photo[category]" placeholder="Category">
+		</div>
+		<div class="field">
+			<label>Location</label>
+			<input type="text" name="photo[location]" placeholder="Location">
+		</div>
+		<input class="ui violet basic button" type="submit">
+	</form>
+</div>
+
+<%- include("partials/footer") %>
