@@ -7,17 +7,10 @@
 	
 	
 	<form class="ui form" action="/photos" method="POST" enctype="multipart/form-data">
-		
-		
-		<div class="field">   
-   			<label for="file" class="ui icon button">
-        		<i class="file icon"></i>
-        		Open File
-			</label>
-   			<input type="file" id="file" name="photo[image]" style="display:none">
+		<div class="custom-file">
+			<input type="file" name="photoFile" id="photoFile" class="custom-file-input">
+			<label for="photoFile" class="custom-file-label">Choose File</label>
 		</div>
-		
-		
 		
 		<div class="field">
 			<label>Category</label>
@@ -27,7 +20,7 @@
 			<label>Location</label>
 			<input type="text" name="photo[location]" placeholder="Location">
 		</div>
-		<input class="ui violet basic button" type="submit">
+		<input class="ui violet basic button" type="submit" value="Submit">
 	</form>
 </div>
 
