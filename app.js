@@ -1,41 +1,63 @@
 var bodyParser 			= require("body-parser"),
 	mongoose 			= require("mongoose"),
 	express				= require("express"),
-	moment 				= require("moment");
-	app 				= express();
-	methodOverride 		= require("method-override");
-	expressSanitizer 	= require("express-sanitizer");
-	
-
+	app 				= express(),
+	methodOverride 		= require("method-override"),
+	expressSanitizer 	= require("express-sanitizer"),
+	fs					= require("fs"),
+	busboy				= require("connect-busboy");
+	path 				= require("path");
+	Photo				= require("./models/photo");
+	User				= require("./models/user");
+	passport			= require("passport");
+	LocalStrategy 		= require("passport-local");
+	middleware			= require("./middleware/middle");
 //App config
-
-mongoose.connect("mongodb+srv://ProjAdmin:StevenJohn@scottvantuyl.cibpf.mongodb.net/scottPhoto?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
-
-//mongoose.connect("mongodb://localhost:27017/scottPhoto", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
+app.use(busboy());
 
-//Mongoose/model config
-var photoSchema = new mongoose.Schema({
-	image: String,
-	created: {type: Date, default: Date.now},
-	location: String,
-	category: String
-});
+//Busboy Init
+const serveIndex = require('serve-index'); 
+app.use('/files', serveIndex(path.join(__dirname, '/files')));
+
+//Mongo Init
+mongoose.connect("mongodb+srv://Drew:Nodatabreach@scottphotography.cibpf.mongodb.net/<dbname>?retryWrites=true&w=majority", 
+				 {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 
-var Photo = mongoose.model("Photo", photoSchema);
 
+//Passport Config
+app.use(require("express-session")({
+	secret: "decc dinsodi dingdong aaaa scam",
+	resave: false,
+	saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//Admin Creation
 /*
-Photo.create({
-	caption: "DB Connectivity Test",
-	image: "stylesheets/images/landing.jpg"
+var newUser = new User({username: "test"});
+User.register(newUser, "thisismytestpassword", function(err, newlyCreatedUser){
+	if(err){
+		console.log(err);
+	}
+	passport.authenticate("local");
 });
 */
+
+
+//============ ROUTES ===============
+
 
 //Landing
 app.get("/", function(req, res){
@@ -49,50 +71,80 @@ app.get("/contact", function(req, res){
 
 //Photos
 app.get("/photos", function(req, res){
-	Photo.find({}, function(err, photos){
+	Photo.find({}, function(err, allPhotos){
 		if(err){
 			console.log(err);
-		}else{
-			res.render("photoPage", {photos: photos});
+		} else {
+			res.render("photoPage", {photos: allPhotos});
 		}
-	});
+	}).sort({_id: -1});
 });
 
 //New Photo
-app.get("/photos/new", function(req, res){
-	res.render("newPhoto");
+app.get("/admin", middleware.isLoggedIn, function(req, res){
+	res.render("dashboard");
 });
 
-//Create Photo
-app.post("/photos", function(req, res){
-	Photo.create(req.body.photo, function(err, newPhoto){
-		req.body.photo.caption = req.sanitize(req.body.photo.caption);
-		if(err){
-			res.render("newPhoto");
-		}else{
-			res.redirect("/photos");
-		}
+//Create photo
+app.post("/photos", middleware.isLoggedIn, function (req, res) {
+	var fstream;
+	req.pipe(req.busboy);
+	req.busboy.on("file", function(fieldname, file, filename){
+		console.log("Uploading: " + filename);
+		var photoPath = "visuals/" + filename;
+		fstream = fs.createWriteStream(__dirname + "/public/" + photoPath);
+		console.log(photoPath);
+		file.pipe(fstream);
+		
+		//Create new photo in DB
+		var newPhoto = {filePath: photoPath}
+		Photo.create(newPhoto, function(err, newlyCreated){
+			if(err){
+				console.log(err);
+			}
+		});
+		
+		fstream.on("close", function(){
+			res.redirect("back");
+		});
 	});
 });
-
 
 //Show Photo
 app.get("/photos/:id", function(req, res){
-	Photo.findById(req.params.id, function(err, foundPhoto){
-		if(err){
-			res.redirect("/photos");
-		}else{
-			res.render("showPhoto", {photo: foundPhoto});
-		}
-	});
+	
 });
 
-//New Video
+//Videos
 app.get("/videos", function(req, res){
 	res.render("videoPage");
 });
 
+//Auth Routes
+
+//Show Login Form
+app.get("/login", function(req, res){
+	res.render("login");
+});
+
+//Handle Login Logic
+app.post("/login", passport.authenticate("local", 
+		{
+		 	successRedirect: "/admin",
+			failureRedirect: "/login"
+		}), function(req, res){
+});
+
+//Logout route
+app.get("/logout", function(req, res){
+	console.log("Successfully logged out");
+	req.logout();
+	res.redirect("/photos");
+});
+
+
 //Listening route
-app.listen("3000", function(){
-	console.log("ScottPhoto server is running");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, function(){
+	console.log("ScottPhoto server is running on port ${ PORT }");
 });

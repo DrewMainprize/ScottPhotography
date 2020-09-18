@@ -1,0 +1,20 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container segment">
+	<div class="ui huge header">
+		Add New Photo
+	</div>
+	
+	<form class="ui form" action="/photos" method="POST" enctype="multipart/form-data">
+		<input type="file" name="file" id="file">
+		<input type="Submit" value="Upload">
+	</form>
+	
+	<%#Logout Form %>
+	<form action="/logout" method="GET">
+		<input type="submit" value="Logout" class="btn btn-primary btn-lg btn-block">
+	</form>
+	
+</div>
+
+<%- include("partials/footer") %>

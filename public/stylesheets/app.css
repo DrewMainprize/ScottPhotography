@@ -1,63 +1,148 @@
+/* Generic body styling */
 body{
-	background-color: #E3EDF4;
+	text-align: center;
+	background-color: #f6f6f6;
+	font-family: "Roboto";
 }
-
-#jumbotron{
-	color: white;
-	background: url("images/landing69.jpg");
-	height: 100vh;
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
+/*----------------------*/
 	
+/* Social Media button styles */
+.media{
+	margin: 10px 30px;
+	display: inline-block;
+	font-size: 70px;
+	padding: 20px 20px;
 }
+/*-------------------------*/
 
-#headerMenu{
-	background: linear-gradient(to right, #11adcb 0%, #336699 100%);
-	margin-bottom: 50px;
+/* Align social media buttons in footer */
+#socials{
+	text-align: center;
 }
-#landingMenu{
-	background: rgba(0, 3, 39, 0.39);
-	box-shadow: 0px 15px 10px -15px #111;
-}
+/*-----------------------*/
 
-#navItem{
+/* Social media button colour and hover animation */
+i{
 	color: white;
 }
 
-#brand{
-	color: white !important;
-	font-family: 'Permanent Marker', cursive;
+i:hover{
+	color: purple;
+	transition: .7s;
 }
-#masonry-grid{
+/*------------------------------------------*/
+
+/* Style Contact form */
+.contactForm{
+	display: block;
+	margin: auto;
+}
+/*-------------------*/
+
+/* Masonry layout for photos */
+.masonry {
 	line-height: 40px;
-	column-count: 4;	
+	column-count: 3;
 }
 
-.grid-item{
+.masonry img{
 	width: 100% !important;
 	height: auto !important;
 	margin-bottom: 20px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-@media screen and (max-width: 991px){
-	#masonry-grid{
-		line-height: 40px;
-		column-count: 3;	
-	}
 }
 
 @media screen and (max-width: 867px){
-	#masonry-grid{
+	.masonry {
 		line-height: 40px;
-		column-count: 2;	
+		column-count: 2;
 	}
 }
+/*-----------------------*/
 
-@media screen and (max-width: 660px){
-	#masonry-grid{
-		line-height: 40px;
-		column-count: 1;	
-	}
+/* Jumbotron Init */
+.jumbotron{
+	background-image: url("https://lh3.googleusercontent.com/hfYdVzgsWsMuBatUzt0t0CIVjJnn6w2xUmWZlxNC5CScsgIJdl6wadqXsFhjyHUunKez0vrLBpOQwUGuwViA225mlv8ehSKCDpeFcwiOJWYMuPKDJuqoyE9pPRfaYd5k2tR97sNXpyWurzemoi95FSP7Nk-I74nxVQqmgHJrr4chZSClojn1ByjZfYCdgnn7G67Rcn-aY0pfhjMlchmxQGLjoIc0PDsZ2FR5-1BjpQThr0NDjBMpkn8T8EiCqvBT_4vA3LDumnrHUeaDTdEduhY3TCRMBIlkay6fbkYEViUMaM3z2bvlE0MGYIGVP8x-56nl1liY3LaOdQYCkKAoaXaf0NsL5LXuO088J24opxPEoY25yFHsiUIoVVA_NkjzXz1FlQBx-0wHl2UfS8QDDg2c3e9_eWD2_Zxt_0oZ4esZ2NdNu8yPXb8ve6rZWtt9QvO5WFsHUKcbp7lWZvCjpTppXGSgp3YiCzOoolyYQaBPRgph0CeRdrRtiG1FZOIFXaHmSZ03i9f-uVUehFtthNdIdF7jxhM61Vg-jmDtoBzDhNon4ghE77FPtS7EimlF-EnqnBol5kKf2vl00BmyytXYdcJPuf1R4DeNhEHAveST-7kxMp11oXT6KeG37UOmj5Y_jwJ6zUk97ITyP1KQt27APgqgRl9s_6xU5aYGZA57SIvrmSmCA4SUs22J=w2880-h1612-no?authuser=0");
+	background-size: cover;
+	color: white;
+	height: 450px;
+	display: flex;
+  	justify-content: center;
+  	align-items: center; 
+}
+/*----------------*/
+
+/* Change Footer background colour */
+#footDiv{
+	background: rgb(92,94,115);
+	background: linear-gradient(210deg, rgba(92,94,115,1) 0%, rgba(82,79,105,1) 26%, rgba(31,31,31,1) 77%);
+}
+/*---------------------*/
+
+/* Customize line break ele's */
+hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	margin: 40px;
+}
+/*-------------------------*/
+
+/* Img hover fade effect */
+.photo:hover{
+	transition: 0.3s;
+	opacity: 0.5;
+}
+/*-----------------------*/
+
+/* Navbar size styling */
+.navbar{
+	height:75px;
+	font-size: 1.2em;
+}
+/*---------------------*/
+
+/* Navbar background styling */
+.navbarExtended{
+	background: rgb(92,94,115);
+	background: linear-gradient(210deg, rgba(92,94,115,1) 0%, rgba(82,79,105,1) 26%, rgba(31,31,31,1) 77%);
+}
+/*-----------------------------*/
+
+/* Brand Styling */
+.navbar-brand{
+	font-size: 1.4em;
+	font-family: "Permanent Marker", cursive;
+}
+/*---------------*/
+
+/*Navbar tag styling */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,.95);
+}
+/*-------------------*/
+
+.carousel img{
+	width: 750px;
+	height: 500px;
+}
+
+.carouselAlign{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.carousel{
+	width: 750px;
+	height: 500px;
+}
+
+/* Image shadows */
+img{
+	box-shadow: 0 0 10px #000;
+}
+/*----------------*/
+
+#photoGrid{
+	padding-top: 25px;
 }
