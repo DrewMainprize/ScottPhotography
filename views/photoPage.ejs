@@ -1,13 +1,21 @@
 <%- include("partials/header") %>
 
+
 <div class="container" id="photoGrid">
 	<div class="masonry">
 		<% photos.forEach(function(photo){ %>
-			<img src="<%= photo.filePath %>" class="photo">
+			<a href="<%= photo.filePath %>" data-toggle="lightbox">
+				<img src="<%= photo.filePath %>" class="photo">
+			</a>
 		<% }); %>
 	</div>
 </div>
-	
 
+<script>
+	$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+    	event.preventDefault();
+        $(this).ekkoLightbox();
+    });
+</script>
 
 <%- include("partials/footer") %>

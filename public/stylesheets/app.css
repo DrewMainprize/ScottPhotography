@@ -27,8 +27,18 @@ i{
 }
 
 i:hover{
-	color: purple;
-	transition: .7s;
+	color: #bc30db;
+	transition: 0.5s;
+}
+
+.text-iconed:hover > * {
+   color: #e0e0e0;
+	transition: 0.5s;
+}
+
+#ifoot:hover{
+	color: #bc30db;
+	transition: 0.5s;
 }
 /*------------------------------------------*/
 
@@ -61,7 +71,7 @@ i:hover{
 
 /* Jumbotron Init */
 .jumbotron{
-	background-image: url("https://lh3.googleusercontent.com/hfYdVzgsWsMuBatUzt0t0CIVjJnn6w2xUmWZlxNC5CScsgIJdl6wadqXsFhjyHUunKez0vrLBpOQwUGuwViA225mlv8ehSKCDpeFcwiOJWYMuPKDJuqoyE9pPRfaYd5k2tR97sNXpyWurzemoi95FSP7Nk-I74nxVQqmgHJrr4chZSClojn1ByjZfYCdgnn7G67Rcn-aY0pfhjMlchmxQGLjoIc0PDsZ2FR5-1BjpQThr0NDjBMpkn8T8EiCqvBT_4vA3LDumnrHUeaDTdEduhY3TCRMBIlkay6fbkYEViUMaM3z2bvlE0MGYIGVP8x-56nl1liY3LaOdQYCkKAoaXaf0NsL5LXuO088J24opxPEoY25yFHsiUIoVVA_NkjzXz1FlQBx-0wHl2UfS8QDDg2c3e9_eWD2_Zxt_0oZ4esZ2NdNu8yPXb8ve6rZWtt9QvO5WFsHUKcbp7lWZvCjpTppXGSgp3YiCzOoolyYQaBPRgph0CeRdrRtiG1FZOIFXaHmSZ03i9f-uVUehFtthNdIdF7jxhM61Vg-jmDtoBzDhNon4ghE77FPtS7EimlF-EnqnBol5kKf2vl00BmyytXYdcJPuf1R4DeNhEHAveST-7kxMp11oXT6KeG37UOmj5Y_jwJ6zUk97ITyP1KQt27APgqgRl9s_6xU5aYGZA57SIvrmSmCA4SUs22J=w2880-h1612-no?authuser=0");
+	background-image: url("/images/jumbo.jpg");
 	background-size: cover;
 	color: white;
 	height: 450px;
@@ -75,6 +85,9 @@ i:hover{
 #footDiv{
 	background: rgb(92,94,115);
 	background: linear-gradient(210deg, rgba(92,94,115,1) 0%, rgba(82,79,105,1) 26%, rgba(31,31,31,1) 77%);
+	margin-bottom: 0;
+	padding-bottom: 0;
+	margin-top: 40px;
 }
 /*---------------------*/
 
@@ -108,6 +121,10 @@ hr{
 }
 /*-----------------------------*/
 
+.navbar-toggler-icon{
+	color: white;
+}
+
 /* Brand Styling */
 .navbar-brand{
 	font-size: 1.4em;
@@ -130,6 +147,7 @@ hr{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 20px;
 }
 
 .carousel{
@@ -144,5 +162,26 @@ img{
 /*----------------*/
 
 #photoGrid{
-	padding-top: 25px;
+	margin-top: 20px;
+}
+
+h2 {
+    font-size: 2.75rem;
+}
+
+/* Removes bottom spacing in footer */
+#ulSocials{
+	margin-bottom: 0;
+}
+/*---------------------------------*/
+
+/* Coming Soon Alignment for Vid Page */
+.comingSoon{
+	padding: 200px;
+}
+/*-------------------------*/
+
+.squared{
+	height: 75%;
+	width: 75%;
 }

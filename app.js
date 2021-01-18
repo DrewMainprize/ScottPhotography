@@ -45,15 +45,15 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //Admin Creation
-/*
-var newUser = new User({username: "test"});
-User.register(newUser, "thisismytestpassword", function(err, newlyCreatedUser){
+
+var newUser = new User({username: "spDrew"});
+User.register(newUser, "Pianoman09", function(err, newlyCreatedUser){
 	if(err){
 		console.log(err);
 	}
 	passport.authenticate("local");
 });
-*/
+
 
 
 //============ ROUTES ===============
@@ -146,5 +146,5 @@ app.get("/logout", function(req, res){
 //Listening route
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function(){
-	console.log("ScottPhoto server is running on port ${ PORT }");
+	console.log("ScottPhoto server running on port ${ PORT }");
 });
