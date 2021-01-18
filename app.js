@@ -44,15 +44,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//Admin Creation
 
-var newUser = new User({username: "spDrew"});
-User.register(newUser, "Pianoman09", function(err, newlyCreatedUser){
-	if(err){
-		console.log(err);
-	}
-	passport.authenticate("local");
-});
 
 
 
