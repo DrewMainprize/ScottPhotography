@@ -8,18 +8,16 @@ body{
 	
 /* Social Media button styles */
 .media{
-	margin: 10px 30px;
+	margin: 30px 30px;
 	display: inline-block;
-	font-size: 70px;
+	font-size: 50px;
 	padding: 20px 20px;
 }
 /*-------------------------*/
 
-/* Align social media buttons in footer */
 #socials{
 	text-align: center;
 }
-/*-----------------------*/
 
 /* Social media button colour and hover animation */
 i{
@@ -65,6 +63,13 @@ i:hover{
 	.masonry {
 		line-height: 40px;
 		column-count: 2;
+	}
+}
+
+@media screen and (max-width: 501px){
+	.masonry {
+		line-height: 40px;
+		column-count: 1;
 	}
 }
 /*-----------------------*/
@@ -138,21 +143,8 @@ hr{
 }
 /*-------------------*/
 
-.carousel img{
-	width: 750px;
-	height: 500px;
-}
-
 .carouselAlign{
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	padding: 20px;
-}
-
-.carousel{
-	width: 750px;
-	height: 500px;
 }
 
 /* Image shadows */
@@ -172,6 +164,7 @@ h2 {
 /* Removes bottom spacing in footer */
 #ulSocials{
 	margin-bottom: 0;
+	padding-left: 0;
 }
 /*---------------------------------*/
 
