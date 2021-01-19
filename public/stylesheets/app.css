@@ -84,6 +84,7 @@ i:hover{
 	display: flex;
   	justify-content: center;
   	align-items: center; 
+	border-radius: 0 !important;
 }
 /*----------------*/
 
@@ -143,10 +144,6 @@ hr{
 }
 /*-------------------*/
 
-.carouselAlign{
-	padding: 20px;
-}
-
 /* Image shadows */
 img{
 	box-shadow: 0 0 10px #000;
@@ -197,4 +194,11 @@ h2 {
 
 .btn-primary:hover{
 	background: #003F52;
+}
+
+.carouselAlign{
+	height: 60%;
+	width: 60%;
+	padding: 20px;
+	margin: auto;
 }
