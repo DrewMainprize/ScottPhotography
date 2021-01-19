@@ -1,8 +1,9 @@
 /* Generic body styling */
 body{
 	text-align: center;
-	background-color: #f6f6f6;
-	font-family: "Roboto";
+	background-color: #DCE2E5;
+	font-family: 'Lato', sans-serif;
+	color: #242F40;
 }
 /*----------------------*/
 	
@@ -25,17 +26,17 @@ i{
 }
 
 i:hover{
-	color: #bc30db;
+	color: #0081A7;
 	transition: 0.5s;
 }
 
 .text-iconed:hover > * {
-   color: #e0e0e0;
+   color: #0081A7;
 	transition: 0.5s;
 }
 
 #ifoot:hover{
-	color: #bc30db;
+	color: #0081A7;
 	transition: 0.5s;
 }
 /*------------------------------------------*/
@@ -88,8 +89,7 @@ i:hover{
 
 /* Change Footer background colour */
 #footDiv{
-	background: rgb(92,94,115);
-	background: linear-gradient(210deg, rgba(92,94,115,1) 0%, rgba(82,79,105,1) 26%, rgba(31,31,31,1) 77%);
+	background: #242F40;
 	margin-bottom: 0;
 	padding-bottom: 0;
 	margin-top: 40px;
@@ -121,8 +121,8 @@ hr{
 
 /* Navbar background styling */
 .navbarExtended{
-	background: rgb(92,94,115);
-	background: linear-gradient(210deg, rgba(92,94,115,1) 0%, rgba(82,79,105,1) 26%, rgba(31,31,31,1) 77%);
+	background: #242F40;/*rgb(92,94,115);*/
+	background: /*linear-gradient(210deg, rgba(92,94,115,1) 0%, rgba(82,79,105,1) 26%, rgba(31,31,31,1) 77%);*/
 }
 /*-----------------------------*/
 
@@ -177,4 +177,24 @@ h2 {
 .squared{
 	height: 75%;
 	width: 75%;
+}
+
+#scottNav{
+	background: #242F40;
+}
+
+.btn-danger{
+	background: #F26430;
+}
+
+.btn-danger:hover{
+	background: #C03C0C;
+}
+
+.btn-primary{
+	background: #0081A7;
+}
+
+.btn-primary:hover{
+	background: #003F52;
 }
