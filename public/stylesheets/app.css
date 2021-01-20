@@ -31,7 +31,7 @@ i:hover{
 }
 
 .text-iconed:hover > * {
-   color: #0081A7;
+	color: #0081A7;
 	transition: 0.5s;
 }
 
@@ -181,7 +181,9 @@ h2 {
 }
 
 .btn-danger{
-	background: #F26430;
+	background: #DD6E46;
+	font-family: "Permanent Marker", cursive;
+	border: none;
 }
 
 .btn-danger:hover{
@@ -190,15 +192,22 @@ h2 {
 
 .btn-primary{
 	background: #0081A7;
+	font-family: "Permanent Marker", cursive;
+	border: none;
 }
 
 .btn-primary:hover{
 	background: #003F52;
 }
 
+.btn-secondary{
+	font-family: "Permanent Marker", cursive;
+	border: none;
+}
+
 .carouselAlign{
-	height: 60%;
-	width: 60%;
+	height: 80%;
+	width: 80%;
 	padding: 20px;
 	margin: auto;
 }
